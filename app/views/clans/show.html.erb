@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @clan.user %>
+</p>
+
+<p>
+  <strong>Dragon:</strong>
+  <%= @clan.dragon %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @clan.name %>
+</p>
+
+<p>
+  <strong>Species:</strong>
+  <%= @clan.species %>
+</p>
+
+<%= link_to 'Edit', edit_clan_path(@clan) %> |
+<%= link_to 'Back', clans_path %>

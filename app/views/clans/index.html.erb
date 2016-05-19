@@ -1,0 +1,34 @@
+<h1>Listing clans</h1>
+<% if current_user %>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Dragon</th>
+      <th>Clan Name</th>
+      <th>Species</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+   <% if current_user %>
+    <% @clans.each do |clan| %>
+      <tr>
+        <td><%= clan.id %></td>
+        <td><%= clan.dragon %></td>
+        <td><%= clan.name %></td>
+        <td><%= clan.species %></td>
+        <td><% if current_user.user_type == "Administrador"  %><%= link_to 'Show', clan %></td><% end %>
+        <td><% if current_user.user_type == "Administrador"  %><%= link_to 'Edit', edit_clan_path(clan) %></td><% end %>
+        <td><% if current_user.user_type == "Administrador"  %><%= link_to 'Destroy', clan, method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
+      </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Clan', new_clan_path %>
+<% end %>

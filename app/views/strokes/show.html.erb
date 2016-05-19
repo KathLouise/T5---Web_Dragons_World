@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @stroke.user %>
+</p>
+
+<p>
+  <strong>Dragon:</strong>
+  <%= @stroke.dragon %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @stroke.name %>
+</p>
+
+<p>
+  <strong>Kind:</strong>
+  <%= @stroke.kind %>
+</p>
+
+<%= link_to 'Edit', edit_stroke_path(@stroke) %> |
+<%= link_to 'Back', strokes_path %>

@@ -1,0 +1,29 @@
+<%= form_for(@dragon) do |f| %>
+  <% if @dragon.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dragon.errors.count, "error") %> prohibited this dragon from being saved:</h2>
+
+      <ul>
+      <% @dragon.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :race %><br>
+    <%= f.text_field :race %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br>
+    <%= f.text_field :gender %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

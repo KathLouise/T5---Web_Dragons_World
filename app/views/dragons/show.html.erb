@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @dragon.user %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @dragon.name %>
+</p>
+
+<p>
+  <strong>Race:</strong>
+  <%= @dragon.race %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @dragon.gender %>
+</p>
+
+<%= link_to 'Edit', edit_dragon_path(@dragon) %> |
+<%= link_to 'Back', dragons_path %>
