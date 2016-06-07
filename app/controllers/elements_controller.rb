@@ -82,4 +82,5 @@ class ElementsController < ApplicationController
     def element_params
       params.require(:element).permit(:user_id, :dragon_id, :name)
     end
+
 end

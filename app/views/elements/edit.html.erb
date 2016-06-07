@@ -1,6 +1,9 @@
-<h1>Editing element</h1>
+<main>
+	<article class="information">
+		<h2 class="subtitle">Editing element</h2>
 
-<%= render 'form' %>
+		<%= render 'form' %>
 
-<%= link_to 'Show', @element %> |
-<%= link_to 'Back', elements_path %>
+	 	<%= link_to image_tag('/assets/show.png'), @element %> 
+		<%= link_to image_tag('/assets/back.png'), elements_path %>
+	</article>

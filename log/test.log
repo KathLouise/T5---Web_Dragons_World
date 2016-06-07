@@ -1,0 +1,565 @@
+  [1m[36m (17.6ms)[0m  [1mCREATE TABLE "clans" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "dragon_id" integer, "name" varchar(255), "species" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (7.3ms)[0m  [1mCREATE  INDEX "index_clans_on_dragon_id" ON "clans" ("dragon_id")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_clans_on_dragon_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_clans_on_dragon_id' AND type='index'
+
+  [1m[36m (13.3ms)[0m  [1mCREATE  INDEX "index_clans_on_user_id" ON "clans" ("user_id")[0m
+  [1m[35m (14.9ms)[0m  CREATE TABLE "dragons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "name" varchar(255), "race" varchar(255), "gender" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (7.6ms)[0m  [1mCREATE  INDEX "index_dragons_on_user_id" ON "dragons" ("user_id")[0m
+  [1m[35m (13.4ms)[0m  CREATE TABLE "elements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "dragon_id" integer, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (6.8ms)[0m  [1mCREATE  INDEX "index_elements_on_dragon_id" ON "elements" ("dragon_id")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_elements_on_dragon_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_elements_on_dragon_id' AND type='index'
+
+  [1m[36m (11.8ms)[0m  [1mCREATE  INDEX "index_elements_on_user_id" ON "elements" ("user_id")[0m
+  [1m[35m (5.0ms)[0m  CREATE TABLE "strokes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "dragon_id" integer, "name" varchar(255), "kind" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (12.5ms)[0m  [1mCREATE  INDEX "index_strokes_on_dragon_id" ON "strokes" ("dragon_id")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_strokes_on_dragon_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_strokes_on_dragon_id' AND type='index'
+
+  [1m[36m (14.5ms)[0m  [1mCREATE  INDEX "index_strokes_on_user_id" ON "strokes" ("user_id")[0m
+  [1m[35m (12.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "email" varchar(255), "user_type" varchar(255), "password_digest" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (15.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (8.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (13.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160519190814')
+  [1m[36m (15.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160517182143')[0m
+  [1m[35m (7.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160426194239')
+  [1m[36m (15.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160519184552')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518180301')
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "dragons"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "dragons" ("user_id", "name", "race", "gender", "created_at", "updated_at", "id") VALUES (NULL, 'MyString', 'MyString', 'MyString', '2016-06-06 18:07:29', '2016-06-06 18:07:29', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "dragons" ("user_id", "name", "race", "gender", "created_at", "updated_at", "id") VALUES (NULL, 'MyString', 'MyString', 'MyString', '2016-06-06 18:07:29', '2016-06-06 18:07:29', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "clans"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "clans" ("user_id", "dragon_id", "name", "species", "created_at", "updated_at", "id") VALUES (NULL, NULL, 'MyString', 'MyString', '2016-06-06 18:07:29', '2016-06-06 18:07:29', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "clans" ("user_id", "dragon_id", "name", "species", "created_at", "updated_at", "id") VALUES (NULL, NULL, 'MyString', 'MyString', '2016-06-06 18:07:29', '2016-06-06 18:07:29', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "elements"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "elements" ("user_id", "dragon_id", "name", "created_at", "updated_at", "id") VALUES (NULL, NULL, 'MyString', '2016-06-06 18:07:29', '2016-06-06 18:07:29', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "elements" ("user_id", "dragon_id", "name", "created_at", "updated_at", "id") VALUES (NULL, NULL, 'MyString', '2016-06-06 18:07:29', '2016-06-06 18:07:29', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("username", "email", "user_type", "password_digest", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', '$2a$10$uwiwI6sJWapVZBNnNj13h.bJtJHvcyJbNOd3LevdLC2DzZxChFgDm', '2016-06-06 18:07:29', '2016-06-06 18:07:29', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("username", "email", "user_type", "password_digest", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', '$2a$10$1KkCYqjH4cgihbuPKyo74OVNuPpXiaCBKiGjZ6MjXyPwNIx3RGJBu', '2016-06-06 18:07:29', '2016-06-06 18:07:29', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "strokes"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "strokes" ("user_id", "dragon_id", "name", "kind", "created_at", "updated_at", "id") VALUES (NULL, NULL, 'MyString', 'MyString', '2016-06-06 18:07:29', '2016-06-06 18:07:29', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "strokes" ("user_id", "dragon_id", "name", "kind", "created_at", "updated_at", "id") VALUES (NULL, NULL, 'MyString', 'MyString', '2016-06-06 18:07:29', '2016-06-06 18:07:29', 298486374)[0m
+  [1m[35m (14.7ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+ClansControllerTest: test_should_create_clan
+--------------------------------------------
+  [1m[35mClan Load (0.4ms)[0m  SELECT  "clans".* FROM "clans"  WHERE "clans"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "clans"[0m
+Processing by ClansController#create as HTML
+  Parameters: {"clan"=>{"dragon_id"=>nil, "name"=>"MyString", "species"=>"MyString", "user_id"=>nil}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 8ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "clans"[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+ClansControllerTest: test_should_destroy_clan
+---------------------------------------------
+  [1m[35mClan Load (0.2ms)[0m  SELECT  "clans".* FROM "clans"  WHERE "clans"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "clans"[0m
+Processing by ClansController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "clans"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+ClansControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[35mClan Load (0.1ms)[0m  SELECT  "clans".* FROM "clans"  WHERE "clans"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ClansController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+ClansControllerTest: test_should_get_index
+------------------------------------------
+  [1m[35mClan Load (0.1ms)[0m  SELECT  "clans".* FROM "clans"  WHERE "clans"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ClansController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 1973ms (Views: 1971.2ms | ActiveRecord: 1.4ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------
+ClansControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mClan Load (0.2ms)[0m  [1mSELECT  "clans".* FROM "clans"  WHERE "clans"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ClansController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+ClansControllerTest: test_should_show_clan
+------------------------------------------
+  [1m[36mClan Load (0.1ms)[0m  [1mSELECT  "clans".* FROM "clans"  WHERE "clans"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ClansController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mClan Load (0.1ms)[0m  SELECT  "clans".* FROM "clans"  WHERE "clans"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 9ms (Views: 7.3ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------
+ClansControllerTest: test_should_update_clan
+--------------------------------------------
+  [1m[36mClan Load (0.1ms)[0m  [1mSELECT  "clans".* FROM "clans"  WHERE "clans"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ClansController#update as HTML
+  Parameters: {"clan"=>{"dragon_id"=>nil, "name"=>"MyString", "species"=>"MyString", "user_id"=>nil}, "id"=>"980190962"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------
+PageControllerTest: test_should_get_index
+-----------------------------------------
+Processing by PageController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ElementsControllerTest: test_should_create_element
+--------------------------------------------------
+  [1m[35mElement Load (0.1ms)[0m  SELECT  "elements".* FROM "elements"  WHERE "elements"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "elements"[0m
+Processing by ElementsController#create as HTML
+  Parameters: {"element"=>{"dragon_id"=>nil, "name"=>"MyString", "user_id"=>nil}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "elements"[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+ElementsControllerTest: test_should_destroy_element
+---------------------------------------------------
+  [1m[35mElement Load (0.1ms)[0m  SELECT  "elements".* FROM "elements"  WHERE "elements"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "elements"[0m
+Processing by ElementsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "elements"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+ElementsControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[35mElement Load (0.1ms)[0m  SELECT  "elements".* FROM "elements"  WHERE "elements"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ElementsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+ElementsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[35mElement Load (0.1ms)[0m  SELECT  "elements".* FROM "elements"  WHERE "elements"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ElementsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+ElementsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mElement Load (0.1ms)[0m  [1mSELECT  "elements".* FROM "elements"  WHERE "elements"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ElementsController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------
+ElementsControllerTest: test_should_show_element
+------------------------------------------------
+  [1m[36mElement Load (0.1ms)[0m  [1mSELECT  "elements".* FROM "elements"  WHERE "elements"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ElementsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mElement Load (0.0ms)[0m  SELECT  "elements".* FROM "elements"  WHERE "elements"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ElementsControllerTest: test_should_update_element
+--------------------------------------------------
+  [1m[36mElement Load (0.1ms)[0m  [1mSELECT  "elements".* FROM "elements"  WHERE "elements"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ElementsController#update as HTML
+  Parameters: {"element"=>{"dragon_id"=>nil, "name"=>"MyString", "user_id"=>nil}, "id"=>"980190962"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"MyString", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user_type"=>"MyString", "username"=>"MyString"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'MyString' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered users/_form.html.erb (9.8ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 28ms (Views: 14.7ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mDragon Load (0.2ms)[0m  SELECT "dragons".* FROM "dragons"  WHERE "dragons"."user_id" = ?  [["user_id", 980190962]]
+  [1m[36mElement Load (0.1ms)[0m  [1mSELECT "elements".* FROM "elements"  WHERE "elements"."user_id" = ?[0m  [["user_id", 980190962]]
+  [1m[35mStroke Load (0.1ms)[0m  SELECT "strokes".* FROM "strokes"  WHERE "strokes"."user_id" = ?  [["user_id", 980190962]]
+  [1m[36mClan Load (0.1ms)[0m  [1mSELECT "clans".* FROM "clans"  WHERE "clans"."user_id" = ?[0m  [["user_id", 980190962]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/users
+Completed 302 Found in 53ms (ActiveRecord: 0.8ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered users/_form.html.erb (3.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 9ms (Views: 7.3ms | ActiveRecord: 1.1ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (9.8ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 18ms (Views: 16.6ms | ActiveRecord: 0.9ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 12ms (Views: 8.9ms | ActiveRecord: 1.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"email"=>"MyString", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user_type"=>"MyString", "username"=>"MyString"}, "id"=>"980190962"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'MyString' AND "users"."id" != 980190962) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered users/_form.html.erb (11.3ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 32ms (Views: 16.9ms | ActiveRecord: 1.3ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------
+StrokesControllerTest: test_should_create_stroke
+------------------------------------------------
+  [1m[36mStroke Load (0.3ms)[0m  [1mSELECT  "strokes".* FROM "strokes"  WHERE "strokes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "strokes"
+Processing by StrokesController#create as HTML
+  Parameters: {"stroke"=>{"dragon_id"=>nil, "kind"=>"MyString", "name"=>"MyString", "user_id"=>nil}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "strokes"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------
+StrokesControllerTest: test_should_destroy_stroke
+-------------------------------------------------
+  [1m[36mStroke Load (0.1ms)[0m  [1mSELECT  "strokes".* FROM "strokes"  WHERE "strokes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "strokes"
+Processing by StrokesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "strokes"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------
+StrokesControllerTest: test_should_get_edit
+-------------------------------------------
+  [1m[36mStroke Load (0.1ms)[0m  [1mSELECT  "strokes".* FROM "strokes"  WHERE "strokes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StrokesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------
+StrokesControllerTest: test_should_get_index
+--------------------------------------------
+  [1m[36mStroke Load (0.1ms)[0m  [1mSELECT  "strokes".* FROM "strokes"  WHERE "strokes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StrokesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+StrokesControllerTest: test_should_get_new
+------------------------------------------
+  [1m[35mStroke Load (0.1ms)[0m  SELECT  "strokes".* FROM "strokes"  WHERE "strokes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by StrokesController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+StrokesControllerTest: test_should_show_stroke
+----------------------------------------------
+  [1m[35mStroke Load (0.1ms)[0m  SELECT  "strokes".* FROM "strokes"  WHERE "strokes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by StrokesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mStroke Load (0.0ms)[0m  [1mSELECT  "strokes".* FROM "strokes"  WHERE "strokes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+StrokesControllerTest: test_should_update_stroke
+------------------------------------------------
+  [1m[35mStroke Load (0.1ms)[0m  SELECT  "strokes".* FROM "strokes"  WHERE "strokes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by StrokesController#update as HTML
+  Parameters: {"stroke"=>{"dragon_id"=>nil, "kind"=>"MyString", "name"=>"MyString", "user_id"=>nil}, "id"=>"980190962"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+SessionsControllerTest: test_should_get_create
+----------------------------------------------
+Processing by SessionsController#create as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."username" IS NULL LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+SessionsControllerTest: test_should_get_destroy
+-----------------------------------------------
+Processing by SessionsController#destroy as HTML
+Redirected to http://test.host/
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+Processing by SessionsController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------
+DragonsControllerTest: test_should_create_dragon
+------------------------------------------------
+  [1m[36mDragon Load (0.1ms)[0m  [1mSELECT  "dragons".* FROM "dragons"  WHERE "dragons"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "dragons"
+Processing by DragonsController#create as HTML
+  Parameters: {"dragon"=>{"gender"=>"MyString", "name"=>"MyString", "race"=>"MyString", "user_id"=>nil}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "dragons"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+DragonsControllerTest: test_should_destroy_dragon
+-------------------------------------------------
+  [1m[36mDragon Load (0.1ms)[0m  [1mSELECT  "dragons".* FROM "dragons"  WHERE "dragons"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "dragons"
+Processing by DragonsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "dragons"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+DragonsControllerTest: test_should_get_edit
+-------------------------------------------
+  [1m[36mDragon Load (0.1ms)[0m  [1mSELECT  "dragons".* FROM "dragons"  WHERE "dragons"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by DragonsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------
+DragonsControllerTest: test_should_get_index
+--------------------------------------------
+  [1m[36mDragon Load (0.1ms)[0m  [1mSELECT  "dragons".* FROM "dragons"  WHERE "dragons"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by DragonsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+DragonsControllerTest: test_should_get_new
+------------------------------------------
+  [1m[35mDragon Load (0.1ms)[0m  SELECT  "dragons".* FROM "dragons"  WHERE "dragons"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by DragonsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+DragonsControllerTest: test_should_show_dragon
+----------------------------------------------
+  [1m[35mDragon Load (0.1ms)[0m  SELECT  "dragons".* FROM "dragons"  WHERE "dragons"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by DragonsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mDragon Load (0.1ms)[0m  [1mSELECT  "dragons".* FROM "dragons"  WHERE "dragons"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+DragonsControllerTest: test_should_update_dragon
+------------------------------------------------
+  [1m[35mDragon Load (0.1ms)[0m  SELECT  "dragons".* FROM "dragons"  WHERE "dragons"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by DragonsController#update as HTML
+  Parameters: {"dragon"=>{"gender"=>"MyString", "name"=>"MyString", "race"=>"MyString", "user_id"=>nil}, "id"=>"980190962"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL  ORDER BY "users"."id" ASC LIMIT 1[0m
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction

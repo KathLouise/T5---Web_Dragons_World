@@ -1,24 +1,22 @@
-<p id="notice"><%= notice %></p>
+<main>
+	<article class="information">
+		<h2 class="subtitle">Informations</h2>
+		<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @dragon.user %>
-</p>
+		<p>
+			<strong>Name:</strong>
+  			<%= @dragon.name %>
+		</p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @dragon.name %>
-</p>
-
-<p>
-  <strong>Race:</strong>
-  <%= @dragon.race %>
-</p>
-
-<p>
-  <strong>Gender:</strong>
-  <%= @dragon.gender %>
-</p>
-
-<%= link_to 'Edit', edit_dragon_path(@dragon) %> |
-<%= link_to 'Back', dragons_path %>
+		<p>
+  			<strong>Gender:</strong>
+  			<%= @dragon.gender %>
+		</p>
+		
+                <% if current_user %> 
+                	<% if current_user.user_type == "Administrador" %> 
+				<%= link_to image_tag('/assets/edit.png'), edit_dragon_path(@dragon) %> 
+                        <%end %>
+                <%end %>
+		<%= link_to image_tag('/assets/back.png'), dragons_path %>
+	</article>

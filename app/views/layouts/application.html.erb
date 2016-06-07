@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>DragonsWorld</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div id="user_header">
-	<%= link_to 'Home', login_path %> |
-	<% if current_user %>
-		Logged in as <%= current_user.username %>.
-		<%= link_to "Log Out", logout_path %>
-	<% end %>
-  </div>
-  <% flash.each do |key, value| %>
-  <%= content_tag(:div, class: "alert alert-#{key}") do %>
-  <p><%= value %></p>
-<% end %>
-<% end %>
-<%= yield %>
-<br><br>
-<% if current_user  %>
-	<%= link_to 'Users', users_path %> 
-	<%= link_to 'Dragons', dragons_path %> 
-	<%= link_to 'Elements', elements_path %> 
-	<%= link_to 'Strokes', strokes_path %> 
-	<%= link_to 'Clans', clans_path %> 
-<% end %>
-</body>
+	<head>
+  		<title>DragonsWorld</title>
+  		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<ul>
+  			<% if current_user %>
+				<%= link_to 'Home', root_path %> |
+			<% else %>
+				<%= link_to 'Home', login_path %> |
+			<% end %>
+			<% if current_user %>
+				Logged in as <%= current_user.username %>.
+				<%= link_to "Log Out", logout_path %>
+			<% end %>
+		</ul>
+  		<% flash.each do |key, value| %>
+  			<%= content_tag(:div, class: "alert alert-#{key}") do %>
+  				<p><%= value %></p>
+			<% end %>
+		<% end %>
+		<%= yield %>
+		<% if current_user  %>
+				<article class="LeftMenu">
+					<%= link_to image_tag("title.png", class: "h1.Nome"), root_path  %>
+					<%= link_to image_tag('/assets/users.png'), users_path %>
+					<%= link_to image_tag('/assets/dragons.png'), dragons_path %>
+					<%= link_to image_tag('/assets/elements.png'), elements_path %>
+					<%= link_to image_tag('/assets/strokes.png'), strokes_path %>
+					<%= link_to image_tag('/assets/clans.png'), clans_path %>
+				</article>
+			</main>
+		<% end %>
+	</body>
 </html>

@@ -1,19 +1,27 @@
-<p id="notice"><%= notice %></p>
+<main>
+	<article class="information">
+		<h2 class="subtitle">Information</h2>
+		<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+		<p>
+			<strong>Username:</strong>
+  			<%= @user.username %>
+		</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+		<p>
+  			<strong>Email:</strong>
+  			<%= @user.email %>
+		</p>
 
-<p>
-  <strong>User type:</strong>
-  <%= @user.user_type %>
-</p>
+		<p>
+  			<strong>User type:</strong>
+  			<%= @user.user_type %>
+		</p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+		<% if current_user %> 
+			<% if current_user.user_type == "Administrador" %> 
+				<%= link_to image_tag('/assets/edit.png'), edit_user_path(@user) %> 
+			<%end %>
+		<%end %>		
+		<%= link_to image_tag('/assets/back.png'), users_path %>
+	</article>

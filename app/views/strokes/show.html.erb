@@ -1,24 +1,27 @@
-<p id="notice"><%= notice %></p>
+<main>
+	<article class="information">
+		<h2 class="subtitle">Information</h2>
+		<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @stroke.user %>
-</p>
+		<p>
+  			<strong>Dragon:</strong>
+  			<%= @stroke.dragon.name %>
+		</p>
 
-<p>
-  <strong>Dragon:</strong>
-  <%= @stroke.dragon %>
-</p>
+		<p>
+  			<strong>Name:</strong>
+  			<%= @stroke.name %>
+		</p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @stroke.name %>
-</p>
+		<p>
+			<strong>Kind:</strong>
+  			<%= @stroke.kind %>
+		</p>
 
-<p>
-  <strong>Kind:</strong>
-  <%= @stroke.kind %>
-</p>
-
-<%= link_to 'Edit', edit_stroke_path(@stroke) %> |
-<%= link_to 'Back', strokes_path %>
+                <% if current_user %> 
+               		<% if current_user.user_type == "Administrador" %> 
+				<%= link_to image_tag('/assets/edit.png'), edit_stroke_path(@stroke) %> 
+                        <%end %>
+                <%end %>
+		<%= link_to image_tag('/assets/back.png'), strokes_path %>
+	</article>

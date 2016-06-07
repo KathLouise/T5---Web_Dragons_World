@@ -1,34 +1,37 @@
-<h1>Listing elements</h1>
+<main>
+	<article class="information">
+		<h2 class="subtitle">Listing elements</h2>
+		<% if current_user %>
+			<table id="grade1" class="grade1">
+  				<thead>
+    					<tr>
+      						<th>ID</th>
+      						<th>Dragon</th>
+      						<th>Name</th>
+      						<th colspan="3">Operations</th>
+    					</tr>
+  				</thead>
 
-<% if current_user %>
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Dragon</th>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-   <% if current_user %>
-    <% @elements.each do |element| %>
-      <tr>
-        <td><%= element.dragon %></td>
-        <td><%= element.name %></td>
-        <td><% if current_user.user_type == "Administrador"  %><%= link_to 'Show', element %></td><% end %>
-        <td><% if current_user.user_type == "Administrador"  %><%= link_to 'Edit', edit_element_path(element) %></td><% end %>
-        <td><% if current_user.user_type == "Administrador"  %><%= link_to 'Destroy', element, method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
-      </tr>
-    <% end %>
-    <% end %>
-  </tbody>
-</table>
-<br>
-<% if current_user %>
-        <% if current_user.user_type == "Administrador" %>
-		<%= link_to 'New Element', new_element_path %>
-	<% end %>
-<% end %>
-<% end %>
+  				<tbody>
+   					<% if current_user %>
+    						<% @elements.each do |element| %>
+      							<tr>
+        							<td><%= element.id %></td>
+        							<td><%= element.dragon.name %></td>
+        							<td><%= element.name %></td>
+        							<td><%= link_to image_tag('/assets/show.png'), element %></td>
+        							<% if current_user.user_type == "Administrador"  %><td><%= link_to image_tag('/assets/edit.png'), edit_element_path(element) %></td><% end %>
+        							<% if current_user.user_type == "Administrador"  %><td><%= link_to image_tag('/assets/destroy.png'), element, method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
+      							</tr>
+    						<% end %>
+    					<% end %>
+  				</tbody>
+			</table>
+			<br>
+			<% if current_user %>
+        			<% if current_user.user_type == "Administrador" %>
+					<%= link_to image_tag('/assets/new.png'), new_element_path %>
+				<% end %>
+			<% end %>
+		<% end %>
+	</article>

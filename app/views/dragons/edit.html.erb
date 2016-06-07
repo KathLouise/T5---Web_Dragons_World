@@ -1,6 +1,9 @@
-<h1>Editing dragon</h1>
+<main>
+	<article class="information">
+		<h2 class="subtitle">Editing dragon</h2>
 
-<%= render 'form' %>
+		<%= render 'form' %>
 
-<%= link_to 'Show', @dragon %> |
-<%= link_to 'Back', dragons_path %>
+		<%= link_to image_tag('/assets/show.png'), @dragon %> 
+		<%= link_to image_tag('/assets/back.png'), dragons_path %>
+	</article>

@@ -1,24 +1,27 @@
-<p id="notice"><%= notice %></p>
+<main>
+	<article class="information">
+		<h2 class="subtitle">Informations</h2>
+		<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @clan.user %>
-</p>
+		<p>
+  			<strong>Dragon:</strong>
+  			<%= @clan.dragon.name %>
+		</p>
 
-<p>
-  <strong>Dragon:</strong>
-  <%= @clan.dragon %>
-</p>
+		<p>
+  			<strong>Name:</strong>
+  			<%= @clan.name %>
+		</p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @clan.name %>
-</p>
+		<p>
+  			<strong>Species:</strong>
+  			<%= @clan.species %>
+		</p>
+		<% if current_user %>
+                	<% if current_user.user_type == "Administrador" %>
+                        	<%= link_to image_tag('/assets/edit.png'), edit_clan_path(@clan) %> 
+                        <%end %>
+                <% end %>
 
-<p>
-  <strong>Species:</strong>
-  <%= @clan.species %>
-</p>
-
-<%= link_to 'Edit', edit_clan_path(@clan) %> |
-<%= link_to 'Back', clans_path %>
+		<%= link_to image_tag('/assets/back.png'), clans_path %>
+	</article>

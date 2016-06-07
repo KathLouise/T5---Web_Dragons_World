@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
+<main>
+	<article class="information">
+		<h2 class="subtitle">Informations</h2>
+		<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @element.user %>
-</p>
+		<p>
+  			<strong>Dragon:</strong>
+  			<%= @element.dragon.name %>
+		</p>
 
-<p>
-  <strong>Dragon:</strong>
-  <%= @element.dragon %>
-</p>
+		<p>
+  			<strong>Name:</strong>
+  			<%= @element.name %>
+		</p>
+                
+		<% if current_user %>         
+	                <% if current_user.user_type == "Administrador" %> 
+				<%= link_to image_tag('/assets/edit.png'), edit_element_path(@element) %> 
+                       	<%end %>
+       		<%end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @element.name %>
-</p>
-
-<%= link_to 'Edit', edit_element_path(@element) %> |
-<%= link_to 'Back', elements_path %>
+		<%= link_to image_tag('/assets/back.png'), elements_path %>
+	</article>
