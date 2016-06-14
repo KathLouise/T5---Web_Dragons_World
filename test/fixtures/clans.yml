@@ -1,13 +1,37 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user_id: 
-  dragon_id: 
-  name: MyString
-  species: MyString
+#one:
+ # user_id: 
+  #dragon_id: 
+  #name: MyString
+  #species: MyString
 
-two:
+test_one:
   user_id: 
-  dragon_id: 
-  name: MyString
-  species: MyString
+  dragon_id: 5 
+  name: Sharp
+  species: Stormcutter
+
+test_two:
+  user_id: 
+  dragon_id: 6
+  name: Boulder
+  species: Gronckle
+
+test_three:
+  user_id: 
+  dragon_id: 7
+  name: Tidal
+  species: Thunderdrum
+
+test_four:
+  user_id: 
+  dragon_id: 8
+  name: Mystery
+  species: Hideous Zippleback
+
+test_five:
+  user_id: 
+  dragon_id: 9
+  name: Stoker
+  species: Monstrous Nightmare

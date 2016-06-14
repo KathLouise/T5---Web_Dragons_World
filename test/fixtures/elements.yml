@@ -1,11 +1,27 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user_id: 
-  dragon_id: 
-  name: MyString
+#one:
+ # user_id: 
+#  dragon_id: 
+ # name: MyString
 
-two:
-  user_id: 
-  dragon_id: 
-  name: MyString
+test_one: 
+  dragon_id: 5 
+  name: 'Sustained and blazing torus of fire'
+
+test_two: 
+  dragon_id: 6
+  name: 'Lava'
+
+test_three: 
+  dragon_id: 7
+  name: 'Sonic Blasts'
+
+test_four: 
+  dragon_id: 8
+  name: 'Ammonium Nitrate mixed with Anhydrous Hydrazine'
+
+test_five: 
+  dragon_id: 9 
+  name: 'Kerosene gel'
+

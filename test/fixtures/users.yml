@@ -1,13 +1,38 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  username: MyString
-  email: MyString
-  user_type: MyString
-  password_digest: <%= BCrypt::Password.create('secret') %>
+#one:
+ # username: MyString
+  #email: MyString
+  #user_type: MyString
+ # password_digest: <%= BCrypt::Password.create('secret') %>
 
-two:
-  username: MyString
-  email: MyString
-  user_type: MyString
-  password_digest: <%= BCrypt::Password.create('secret') %>
+test_one:
+  username: Caio 
+  email: caio.n@gmail.com
+  user_type: User
+  password_digest: 5123456 
+
+test_two:
+  username: Jackyzilla 
+  email: jackyzilla.valente@gmail.com
+  user_type: Administrador
+  password_digest: 789456
+
+test_three:
+  username: Nanael 
+  email: rogerio.ramos@yahoo.com.br
+  user_type: User
+  password_digest: 456975 
+
+test_four:
+  username: Karyna 
+  email: kah.lamy@hotmail.com
+  user_type: Administrador
+  password_digest: 984577
+
+test_five:
+  username: Fer
+  email: nanda_fernandes@gmail.com
+  user_type: User
+  password_digest: 99885522 
+

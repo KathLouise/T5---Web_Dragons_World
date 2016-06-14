@@ -1,13 +1,28 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user_id: 
-  name: MyString
-  race: MyString
-  gender: MyString
+#one:
+ # user_id: 
+  #name: MyString
+ # race: MyString
+ # gender: MyString
 
-two:
-  user_id: 
-  name: MyString
-  race: MyString
-  gender: MyString
+test_one:
+  name: 'Cloudjumper'
+  gender: 'Male'
+
+test_two:
+  name: 'Meatlug'
+  gender: 'Female'
+
+test_three:
+  name: 'Thunder'
+  gender: 'Male'
+
+test_four:
+  name: 'Barf and  Belch' 
+  gender: 'Male'
+
+test_five:
+  name: 'Hookfang'
+  gender: 'Male'
+
